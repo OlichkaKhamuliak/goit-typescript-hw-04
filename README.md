@@ -1,10 +1,14 @@
 # Завдання 1
 
-У вас є компонент React, який використовує useRef та IntersectionObserver для визначення, коли користувач переглядає кінець вмісту. Ваше завдання полягає в наступному:
+У вас є компонент React, який використовує useRef та IntersectionObserver для визначення, коли
+користувач переглядає кінець вмісту. Ваше завдання полягає в наступному:
 
-Встановіть правильні типи пропсів для цього компонента. У ньому є дві властивості: children і onContentEndVisible. children - це будь-який валідний React вузол, а onContentEndVisible - це функція без аргументів, що повертає void.
+Встановіть правильні типи пропсів для цього компонента. У ньому є дві властивості: children і
+onContentEndVisible. children - це будь-який валідний React вузол, а onContentEndVisible - це
+функція без аргументів, що повертає void.
 
-Встановіть правильний тип useRef. Посилання endContentRef використовується для div, який міститься в кінці вмісту.
+Встановіть правильний тип useRef. Посилання endContentRef використовується для div, який міститься в
+кінці вмісту.
 
 Встановіть правильний тип для options (клас також може бути типом для options).
 
@@ -24,8 +28,8 @@ export function Observer({ children, onContentEndVisible }: Props) {
       root: null,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.intersectionRatio > 0) {
           onContentEndVisible();
           observer.disconnect();
@@ -87,10 +91,7 @@ function requestReducer(state: State, action: Action): State {
 }
 
 export function RequestComponent() {
-  const [requestState, requestDispatch] = useReducer(
-    requestReducer,
-    initialState
-  );
+  const [requestState, requestDispatch] = useReducer(requestReducer, initialState);
 
   const startRequest = () => {
     requestDispatch({ type: "START_REQUEST" });
@@ -122,7 +123,9 @@ export default RequestComponent;
 
 # Завдання 3
 
-Ви створюєте компонент форми у React. Ви маєте поле введення, в якому ви хочете відстежити зміни. Для цього ви використовуєте обробник подій onChange. Ваше завдання – правильно типізувати подію, яка передається у цю функцію.
+Ви створюєте компонент форми у React. Ви маєте поле введення, в якому ви хочете відстежити зміни.
+Для цього ви використовуєте обробник подій onChange. Ваше завдання – правильно типізувати подію, яка
+передається у цю функцію.
 
 ```ts
 import React, { useState } from "react";
@@ -130,7 +133,7 @@ import React, { useState } from "react";
 export function FormComponent() {
   const [value, setValue] = useState("");
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setValue(event.target.value);
   };
 
@@ -146,7 +149,8 @@ export function FormComponent() {
 
 Описати тип MenuSelected: Цей тип є об'єктом, що містить selectedMenu
 
-Описати тип MenuAction: Цей тип являє собою об'єкт з методом onSelectedMenu, який приймає об'єкт типу SelectedMenu як аргумент повертає void.
+Описати тип MenuAction: Цей тип являє собою об'єкт з методом onSelectedMenu, який приймає об'єкт
+типу SelectedMenu як аргумент повертає void.
 
 Описати тип PropsProvider: Опишіть правильний тип для дітей
 
